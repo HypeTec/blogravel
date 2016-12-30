@@ -15,9 +15,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts', 'PostController');
-Route::resource('tags', 'TagController');
-Route::resource('comments', 'CommentController');
-Auth::routes();
+Route::post('ajax/blog/history', 'BlogController@ajaxHistory')->name('ajax.blog.history');
+Route::post('ajax/blog/posts', 'BlogController@ajaxGetPosts')->name('ajax.blog.posts');
+Route::get('/blog', 'BlogController@index')->name('blog.index');
+Route::get('/blog/{slug}', 'BlogController@show')->name('blog.post');
+Route::put('/blog/{slug}', 'BlogController@addComment');
+
+Route::get('/login', function(){
+    return redirect('/backend/login');
+});
+
+Route::group(['prefix' => 'backend'], function(){
+    Auth::routes();
+
+    Route::group(['middleware' => ['auth']], function(){
+        Route::get('/', 'BackendController@index')->name('backend');
+        Route::resource('posts', 'Backend\PostController');
+        Route::resource('tags', 'Backend\TagController');
+        Route::resource('comments', 'Backend\CommentController', ['only' => ['index', 'destroy']]);
+        Route::patch('comments/{id}/toggleStatus', 'Backend\CommentController@toggleStatus')->name('comment.toggle.status');
+
+        // File manager...
+        Route::resource('files', 'Backend\FileController');
+    });
+});
+
 
 Route::get('/home', 'HomeController@index');
