@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed9df8b872992035f068a7fe461a635a",
-    "content-hash": "76036da3b5b55b91dbe1e1affa01bf9e",
+    "hash": "69e1ac06351d5de190ce73a090b1b3dd",
+    "content-hash": "c3b67c86b45df9f35ae6ee82bc1123ee",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -305,6 +305,38 @@
                 "tokenizer"
             ],
             "time": "2016-12-07 09:37:55"
+        },
+        {
+            "name": "lais/scaffold",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LAIS-HUOL/laravel-scaffolder.git",
+                "reference": "eba52d5825ce13b827b0fd6668c4bc8a8a0ab588"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LAIS-HUOL/laravel-scaffolder/zipball/eba52d5825ce13b827b0fd6668c4bc8a8a0ab588",
+                "reference": "eba52d5825ce13b827b0fd6668c4bc8a8a0ab588",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LAIS\\Scaffold\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean Jar Pereira de Araújo",
+                    "email": "jeanjpa@gmail.com"
+                }
+            ],
+            "time": "2016-12-21 10:03:07"
         },
         {
             "name": "laravel/framework",
